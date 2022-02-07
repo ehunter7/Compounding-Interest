@@ -63,9 +63,6 @@ int main() {
 			displayCalculations(*InterestCalculations, i, "with");
 		}
 
-		//New line for readability 
-		cout << endl;
-
 		//Prompts the user to enter their choice to retry or exit
 		cout << "Enter 'y' to continue or 'q' to quite: ";
 		cin >> proceed;
@@ -134,7 +131,6 @@ void GetUserInput(CompoundingInterest& t_tmp){
 
 void DisplayHeader(string t_condition) {
 
-	//displays the appropriate report header based on the condition passed to the function
 	if (t_condition == "with") {
 
 		cout  << setfill(' ') << setw(56) << "Balance and Interest With Additional Monthly Deposits" << endl;
@@ -153,11 +149,9 @@ void DisplayHeader(string t_condition) {
 
 void displayCalculations(CompoundingInterest& t_tmp, int t_index, string t_condition) {
 
-	//Depending on the condition passed into the function calls the appropriate object method
 	double shuttle = (t_condition == "with" ? t_tmp.CalculateYearlyInterestWithDeposits(t_index) :
 		t_tmp.CalculateYearlyInterestWithoutDeposits(t_index));
-	
-	//Creates string to get the length of the double value to be used when formatting
+
 	string tmpstr = to_string(shuttle);
 
 	cout << setw(5) << setfill(' ') << t_index << setw(11) << setfill(' ') << "$ "
